@@ -1,7 +1,6 @@
 package com.example.SecurityGi.service;
 
 
-import com.example.SecurityGi.dto.LoginUserDto;
 import com.example.SecurityGi.dto.UserDto;
 import com.example.SecurityGi.entity.User;
 import com.example.SecurityGi.repository.UserRepository;
@@ -16,17 +15,18 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
+
     public List<UserDto> getAllUsers() {
         return userRepository.findAll().stream()
-                .map(e -> new UserDto(e.getUsername()))
+                .map(e -> UserDto.builder().username(e.getUsername()).build())
                 .toList();
     }
 
-    public LoginUserDto addAndCreateUser(LoginUserDto loginUserDto) {
+    public void addAndCreateUser(UserDto userDto) {
         User newUser = new User();
-        newUser.setUsername(loginUserDto.getUsername());
-        newUser.setPassword(loginUserDto.getPassword());
+        newUser.setUsername(userDto.getUsername());
+        newUser.setPassword(userDto.getPassword());
+        newUser.setRole(userDto.getRole());
         userRepository.save(newUser);
-        return loginUserDto;
     }
 }

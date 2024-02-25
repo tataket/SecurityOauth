@@ -1,9 +1,12 @@
 package com.example.SecurityGi.role;
 
 public enum UserRole {
-    USER,
-    ADMIN;
+    USER("user"),
+    ADMIN("admin");
 
-    UserRole(){
+    private String role;
+
+    UserRole(String role) {
+        this.role = role;
     }
 }
