@@ -1,5 +1,6 @@
 package com.example.SecurityGi.dto;
 
+import com.example.SecurityGi.role.UserRole;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -16,7 +17,7 @@ public class UserDto {
 
     private String username;
     private String password;
-    private Role role;
+    private UserRole userRole;
 
 }
 

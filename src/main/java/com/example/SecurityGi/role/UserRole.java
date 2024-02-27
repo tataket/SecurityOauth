@@ -1,12 +1,14 @@
 package com.example.SecurityGi.role;
 
+import lombok.Getter;
+
+@Getter
 public enum UserRole {
-    USER("user"),
-    ADMIN("admin");
+    USER,
+    ADMIN;
 
     private String role;
 
-    UserRole(String role) {
-        this.role = role;
+    UserRole() {
     }
 }

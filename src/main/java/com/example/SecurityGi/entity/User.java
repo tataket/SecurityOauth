@@ -1,17 +1,18 @@
 package com.example.SecurityGi.entity;
 
+import com.example.SecurityGi.role.UserRole;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
-
-import javax.management.relation.Role;
 
 @Getter
 @Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "/useroauth")
+@Table(name = "\"useroauth\"")
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class User {
 
     @Id
@@ -26,6 +27,6 @@ public class User {
     private String password;
 
     @Enumerated(EnumType.STRING)
-    @Column(unique = true)
-    private Role role;
+    @Column
+    private UserRole userRole;
 }

@@ -19,11 +19,10 @@ public class SecurityConfigs {
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorize ->
                         authorize
-                                .requestMatchers(HttpMethod.GET, "/dashboard").hasRole("USER")
+                    //  .requestMatchers(HttpMethod.GET, "/useroauth").hasRole("USER")
                                 .anyRequest().permitAll()
                 )
                 .build();
     }
 
-    }
-
+}
